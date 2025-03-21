@@ -11,7 +11,8 @@ const swaggerGeneration = {
         },
         servers: [
             {
-                url: "http://localhost:8082/api/v1",
+
+                url: "http://localhost:3001/api/v1",
             },
         ],
     },
@@ -19,19 +20,19 @@ const swaggerGeneration = {
 }
 const server = http.createServer (function(req, res) {
 // A l'arrivée d'une requête
-console.log("Serveur running at http://127.0.0.1:8082/");
+console.log("Serveur running at http://127.0.0.1:3001/");
 res.end();
 })
 
-// Lancer le serveur (en écoute au port 8082)
-server.listen(8082)
+// Lancer le serveur (en écoute au port 3000)
+server.listen(3001)
 
 const express = require('express');
 const app = express();
-const postRoutes = require('./routes/posts.route');
+const postRoutes = require('./src/routes/posts.route');
 
 app.use(express.json());
 app.use('/posts', postRoutes);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Serveur démarré sur le port ${PORT}`));
