@@ -1,0 +1,35 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./Backend/index.js",
+    "test": "mocha",
+    "lint": "eslint . -c .js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nonolv33/Backend-JS"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nonolv33/Backend-JS/issues"
+  },
+  "homepage": "https://github.com/nonolv33/Backend-JS#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "eslint": "^9.18.0",
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^15.14.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "mocha": "^11.0.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.14.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
