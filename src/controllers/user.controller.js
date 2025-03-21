@@ -1,24 +1,18 @@
 const userModel = require("../models/user.model");
 
 getUsers = (request, response) => {
-    console.log(response);
     userModel.getUsers((error, data) => {
-        if(error)
+        if (error)
             response.status(500).send({
-                message:
-                    
-                    error.message || "Erreur table user"
+                message: error.message || "Erreur table user"
             });
         else response.send(data);
-        
-     
-    })
-}
+    });
+};
 
 // Fonction pour récupérer un utilisateur par son ID
 getUserById = (req, res) => {
     const userId = req.params.id; // Récupère l'ID de l'URL
-    console.log(`Route /user/${userId} appelée`);
 
     userModel.getUserById(userId, (error, data) => {
         if (error) {
@@ -35,10 +29,9 @@ getUserById = (req, res) => {
     });
 };
 
-// Fonction pour récupérer un utilisateur par son ID
+// Fonction pour récupérer un utilisateur par son nom
 getUserByName = (req, res) => {
-    const userId = req.params.nom; // Récupère l'ID de l'URL
-    console.log(`Route /user/filter/${userId} appelée`);
+    const userId = req.params.nom; // Récupère le nom de l'URL
 
     userModel.getUserByName(userId, (error, data) => {
         if (error) {
@@ -56,12 +49,11 @@ getUserByName = (req, res) => {
 };
 
 createUser = (req, res) => {
-    console.log(req.body);
     const { name, email } = req.body;  // Récupère les informations de l'utilisateur envoyées dans le body de la requête
 
     if (!name || !email) {
         return res.status(400).send({
-            message: "Le nom, l'email et l'âge sont obligatoires"
+            message: "Le nom et l'email sont obligatoires"
         });
     }
 
@@ -86,7 +78,7 @@ updateUser = (req, res) => {
 
     if (!name || !email) {
         return res.status(400).send({
-            message: "Le nom, l'email et l'âge sont obligatoires"
+            message: "Le nom et l'email sont obligatoires"
         });
     }
 
@@ -125,4 +117,4 @@ deleteUser = (req, res) => {
     });
 };
 
-module.exports = {getUsers, getUserById, getUserByName, createUser, updateUser, deleteUser};
+module.exports = { getUsers, getUserById, getUserByName, createUser, updateUser, deleteUser };
