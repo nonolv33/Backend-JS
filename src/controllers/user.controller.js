@@ -18,7 +18,7 @@ getUsers = (request, response) => {
 // Fonction pour récupérer un utilisateur par son ID
 getUserById = (req, res) => {
     const userId = req.params.id; // Récupère l'ID de l'URL
-    console.log(`Route /users/${userId} appelée`);
+    console.log(`Route /user/${userId} appelée`);
 
     userModel.getUserById(userId, (error, data) => {
         if (error) {
@@ -38,7 +38,7 @@ getUserById = (req, res) => {
 // Fonction pour récupérer un utilisateur par son ID
 getUserByName = (req, res) => {
     const userId = req.params.nom; // Récupère l'ID de l'URL
-    console.log(`Route /users/filter/${userId} appelée`);
+    console.log(`Route /user/filter/${userId} appelée`);
 
     userModel.getUserByName(userId, (error, data) => {
         if (error) {
